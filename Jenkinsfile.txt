@@ -1,13 +1,12 @@
 pipeline {
     agent any
-    
+
     stages {
 
         stage('Checkout') {
             steps {
                 git branch: 'main',
                 url: 'https://github.com/iam-sharuk/example-expressjs.git'
-                credentialsId: 'iam-sharuk'
             }
         }
         stage('Deploy') {
