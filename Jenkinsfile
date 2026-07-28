@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/koyeb/example-expressjs.git'
+                credentialsId: 'iam-sharuk'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo Deploying Application...'
+            }
+        }
+    }
+}
