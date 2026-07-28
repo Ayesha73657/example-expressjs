@@ -6,8 +6,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/koyeb/example-expressjs.git'
-                credentialsId: 'iam-sharuk'
+                url: 'https://github.com/iam-sharuk/example-expressjs.git'
+                credentialsId: 'demo.1'
             }
         }
         stage('Deploy') {
