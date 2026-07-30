@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                url: 'https://github.com/Ayesha73657/example-expressjs.git',
+                url: 'https://github.com/Ayesha73657/example-expressjs.git'
             }
         }
         stage('Deploy') {
