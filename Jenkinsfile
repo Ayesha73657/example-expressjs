@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                credentialsId: 'github_id',
+                credentialsId: 'token_id',
                 url: 'https://github.com/Ayesha73657/example-expressjs.git'
                 
             }
