@@ -1,10 +1,13 @@
-FROM node:slim
+FROM node:20-alpine
 
 WORKDIR /app
-COPY . .
+
+COPY package*.json ./
+
 RUN npm ci
 
-ARG PORT
-EXPOSE ${PORT:-3000}
+COPY . .
 
-CMD ["npm", "run", "start"]
+EXPOSE 3000
+
+CMD ["npm", "start"]
