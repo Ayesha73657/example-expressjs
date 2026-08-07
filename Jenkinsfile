@@ -12,9 +12,18 @@ pipeline {
             }
         }
     
-        stage('Deploy') {
+         stage('Build Docker image') {
             steps {
-                sh 'echo Deploying Application...App'
+                sh 'docker build -t my_app:v1 .'
+            }
+        }
+
+        stage('Deploy image') {
+            steps {
+                sh 'docker run -d \
+                  --name node-app \
+                  -p 3000:3000 \
+                  my_app:v1'
             }
         }
     }
