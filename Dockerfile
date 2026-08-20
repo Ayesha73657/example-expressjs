@@ -1,13 +1,9 @@
-FROM node:20-alpine
-
+FROM ubuntu 
+RUN apt update && apt upgrade -y
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
 WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm ci
-
+COPY *.json .
+RUN npm install 
 COPY . .
-
-EXPOSE 3000
-
 CMD ["npm", "start"]
